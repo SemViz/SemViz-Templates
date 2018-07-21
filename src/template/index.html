@@ -1,0 +1,65 @@
+<template id="semVizBaseTemplate-template">
+  <div class="flexV fullPage">
+    <div class="flexH">
+      <div class="filter">
+        <slot name="slot1" ></slot>
+      </div>
+      <div class="visualisation">
+          <slot name="slot2" ></slot>
+      </div>
+      <div class="detail hide">
+          <slot name="slot3" ></slot>
+      </div>
+    </div>
+  </div>
+  <style>
+
+    .hide{
+      display: none;
+    }
+    .flexV{
+      display: flex;
+      flex-direction: column;
+    }
+    .fullPage{
+      bottom:0;
+      top:0;
+      right:0;
+      left:0;
+      position:absolute;
+    }
+    .flexH{
+      display: flex;
+      flex-grow: 1;
+      align-items : stretch;
+      overflow: hidden;
+      flex-shrink:1;
+    }
+    .flexH>*{
+      padding: 10px;
+    }
+    .filter{
+      border-style: solid;
+      border-width: 1px;
+      flex-basis:30%;
+    }
+    .visualisation{
+      border-style: solid;
+      border-width: 1px;
+      overflow: auto;
+      flex-basis:70%
+    }
+    .detail{
+      border-style: solid;
+      border-width: 1px;
+      flex-grow : 1;
+    }
+  </style>
+</template>
+<% for (var index in htmlWebpackPlugin.files.js) { %>
+  <script src="./<%= htmlWebpackPlugin.files.js[index] %>"></script>
+  <% } %>
+    <script>
+      // console.log('ALLO');
+
+    </script>
